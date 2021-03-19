@@ -22,7 +22,7 @@ import logging
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CallbackQueryHandler, CommandHandler, MessageHandler, Filters
 import urllib.request
-link = 'https://makar-mazur.github.io/BotFriday/data/'
+link = 'https://ulkabo.github.io/bot-friday/data/'
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -98,9 +98,13 @@ def rozrahunok_konkursnogo_balu(update, context):
 def etapi_vstupnoi_kompanii(update, context):
 	  pass
 def korisni_posilanya(update, context):
-	  pass
+    link_file = link + 'korisni_posilanya.txt'
+    content = read_content_from_file(link_file)
+    update.callback_query.message.reply_text(content, reply_markup = reply )
 def mistcya_dlya_vstupnikiv(update, context):
-	  pass    
+    link_file = link + 'mistcya_dlya_vstupnikiv.txt'
+    content = read_content_from_file(link_file)
+    update.callback_query.message.reply_text(content, reply_markup = reply )
 def vikladachi(update, context):
     link_file = link + 'vikladachi.txt'
     content = read_content_from_file(link_file)
@@ -113,6 +117,14 @@ def auditorii(update, context):
     pass
 def vipusniki(update, context):
     pass
+def proektne(update, context):
+    link_file = link + 'proektne.txt'
+    content = read_content_from_file(link_file)
+    update.callback_query.message.reply_text(content, reply_markup = reply )
+def dualna(update, context):
+    link_file = link + 'dualna.txt'
+    content = read_content_from_file(link_file)
+    update.callback_query.message.reply_text(content, reply_markup = reply )
 def main():
   
     updater = Updater("1671642973:AAHT2zBxKfdHbR5sfccll3rR9k1zSZGpEfE", use_context=True)
